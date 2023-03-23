@@ -3,7 +3,6 @@ module uk.co.dnbanks.gameengine {
     requires javafx.fxml;
 
 
-    opens uk.co.dnbanks.gameengine to javafx.fxml;
     exports uk.co.dnbanks.gameengine.display;
     opens uk.co.dnbanks.gameengine.display to javafx.fxml;
     exports uk.co.dnbanks.gameengine.utilities;
