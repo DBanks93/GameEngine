@@ -7,9 +7,11 @@ So far all you can do is add a camera to a blank/black scene... but more is to c
 At the moment it's WIP but feel free to check it out so far!!
 
 
-To create a scene:
-Game.createScene(sceneName, Size of the game window (As a Vector2D), Bool if the game window should have a full screen cam)
-Game.loadScene(sceneName)
+To create a game with a scene:
+1) Create a main Method with the function Game.init()
+2) Then anywhere in your code:
+- Game.createScene(sceneName, Size of the game window (As a Vector2D), Bool if the game window should have a full screen cam)
+- Game.loadScene(sceneName)
 OR
 Game.setStartScene(sceneName)
 
