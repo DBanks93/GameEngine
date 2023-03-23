@@ -1,4 +1,4 @@
-# GameEngine
+# Java Game Engine
 
 This is a very WIP game engine. The aim is to create a game engine in Java where people can write scripts to create their own games. 
 It won't be complex and until I feel happy about base code and what's implemented
