@@ -1,4 +1,4 @@
-package uk.co.dnbanks.gameengine.test;
+package uk.co.dnbanks.gameengine.example;
 
 import uk.co.dnbanks.gameengine.game.Game;
 import uk.co.dnbanks.gameengine.utilities.Vector2D;
