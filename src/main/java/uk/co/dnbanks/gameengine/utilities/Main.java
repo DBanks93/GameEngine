@@ -16,9 +16,17 @@ public class Main extends Application {
     public static void main(String[] args) {
         //Window window = new Window(500, 500);
         //scene = new Scene(new Vector2D(500, 500), window,"test");
+        /* // Used for my Testing
         Game.createScene("Test", new Vector2D(800,800), true);
         Game.loadScene("Test");
-        launch();
+        */
+        String startScene = Game.getStartScene();
+        if (startScene == null || startScene.equals("")) {
+            System.out.println("Start Scene has not been set");
+        } else {
+            Game.loadScene(startScene);
+            launch();
+        }
     }
 
 
