@@ -21,5 +21,5 @@ I will generate a javadoc to help, there is currently java doc in my code but as
 
 **Requirements:**
 -
-- Java 8 (or higher)  {I used Java 17 on my Machine}
+- Java 8 (or higher)  {I used Java 19 on my Machine}
 - JavaFx
