@@ -1,6 +1,9 @@
 package uk.co.dnbanks.gameengine.example;
 
+import javafx.scene.paint.Color;
 import uk.co.dnbanks.gameengine.game.Game;
+import uk.co.dnbanks.gameengine.game.Scene;
+import uk.co.dnbanks.gameengine.objects.drawable.Rect;
 import uk.co.dnbanks.gameengine.utilities.Vector2D;
 
 public class TestGame extends Game {
@@ -13,7 +16,12 @@ public class TestGame extends Game {
           alternatively you can call: Game.setStartScene("Main");
           or to load the scene later on: Game.loadScene("Main");
          */
-        createScene("Main", new Vector2D(800, 800), true).setAsStartScene();
+        Scene scene = createScene("Main", new Vector2D(800, 800), true);
+        scene.setAsStartScene();
+
+        // Adding a rectangle to the scene with a size of 150x100 on position 100, 100 with the colour of aquq
+        scene.addObject(new Rect("Test Rectangle", new Vector2D(150, 100), new Vector2D(100, 100), Color.AQUA));
+
 
         // Lastly launching the game
         launch();

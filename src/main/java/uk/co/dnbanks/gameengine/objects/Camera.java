@@ -53,4 +53,12 @@ public class Camera extends Object {
     public String getCameraName() {
         return window.getName();
     }
+
+    /**
+     * Renders what the camera is seeing to its relevant window.
+     * Note: this is done automatically, so you don't need to call this
+     */
+    public void render() {
+        window.refresh(position);
+    }
 }

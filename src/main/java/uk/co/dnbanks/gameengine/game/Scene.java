@@ -2,6 +2,7 @@ package uk.co.dnbanks.gameengine.game;
 
 import uk.co.dnbanks.gameengine.objects.Camera;
 import uk.co.dnbanks.gameengine.objects.Object;
+import uk.co.dnbanks.gameengine.objects.drawable.Drawable;
 import uk.co.dnbanks.gameengine.utilities.Vector2D;
 
 import java.util.HashMap;
@@ -19,7 +20,7 @@ public class Scene {
     private Vector2D dimensions;
 
     // Objects in the scene
-    private HashMap<String, Object> objects = new HashMap<>();
+    private final HashMap<String, Object> objects = new HashMap<>();
 
     /**
      * Creates a scene.
@@ -81,5 +82,20 @@ public class Scene {
      */
     public void setAsStartScene() {
         Game.setStartScene(scene.getSceneName());
+    }
+
+    /**
+     * Adds an object to the scene.
+     * @param object The drawable image to be added
+     */
+    public void addObject(Drawable object) {
+        objects.put(object.getObjectName(), object);
+
+        Object mainCamera = objects.get(Camera.MAIN_CAMERA_NAME);
+
+        if (mainCamera instanceof Camera) {
+            ((Camera) mainCamera).getWindow().add(object);
+            ((Camera) mainCamera).render();
+        }
     }
 }
