@@ -9,7 +9,7 @@ At the moment it's WIP but feel free to check it out so far!!
 __I have a test game that shows the basics of the engine and how you can use it (example.testGame.java)__
 
 To create a game with a scene:
-1) Create a main Method with the function Game.init()
+1) Create a class with a main Method *(You can either extend Game or just call Game everytime you with to call a function - This may change in furture versions)* with the function Game.init()
 2) Then anywhere in your code:
 - Game.createScene(sceneName, Size of the game window (As a Vector2D), Bool if the game window should have a full screen cam)
 - Game.loadScene(sceneName)
