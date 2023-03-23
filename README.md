@@ -6,6 +6,7 @@ It won't be complex and until I feel happy about base code and what's implemente
 So far all you can do is add a camera to a blank/black scene... but more is to come this is just a teaser
 At the moment it's WIP but feel free to check it out so far!!
 
+__I have a test game that shows the basics of the engine and how you can use it (example.testGame.java)__
 
 To create a game with a scene:
 1) Create a main Method with the function Game.init()
