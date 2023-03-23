@@ -27,10 +27,10 @@ public class Game {
     }
 
     /**
-     * Intitalises the game.
+     * Initialises the game.
      * Must be called at the beginning of the main method
      */
-    public static void init() {
+    public static void initGame() {
         Main.initGame();
     }
 
