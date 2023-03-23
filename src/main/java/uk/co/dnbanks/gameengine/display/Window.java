@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * Window the game is displayed
+ *
  * @author Daniel Banks
  * @version %I%
  */
@@ -24,7 +25,8 @@ public class Window extends RenderableWindow {
 
     /**
      * Creates a main View Window (Screen that renders the game).
-     * @param windowWidth Width of the window
+     *
+     * @param windowWidth  Width of the window
      * @param windowHeight Height of the window
      */
     public Window(int windowWidth, int windowHeight) {
@@ -34,9 +36,10 @@ public class Window extends RenderableWindow {
 
     /**
      * Creates a View Window (Screen that renders the game).
-     * @param windowWidth Width of the window
+     *
+     * @param windowWidth  Width of the window
      * @param windowHeight Height of the window
-     * @param name Name of the window
+     * @param name         Name of the window
      */
     public Window(int windowWidth, int windowHeight, String name) {
         super(windowWidth, windowHeight);
@@ -45,6 +48,7 @@ public class Window extends RenderableWindow {
 
     /**
      * Adds an object to the GUI.
+     *
      * @param object object to be added
      */
     public void add(Drawable object) {
@@ -53,6 +57,7 @@ public class Window extends RenderableWindow {
 
     /**
      * Gets the name of the window.
+     *
      * @return Name of window
      */
     public String getName() {
@@ -61,25 +66,22 @@ public class Window extends RenderableWindow {
 
     /**
      * Refreshes and renders the window based on what it's camera is seeing.
+     *
      * @param cameraPos current position of the camera.
      */
     public void refresh(Vector2D cameraPos) {
         this.cameraPos = cameraPos;
         for (Drawable object : objects) {
             if (isObjOnScreen(object)) {
-                if (object.hasTexture()) {
-                    // draw Texutre
-                } else {
-                    Vector2D pos = offsetPos(object.getPosition());
-                    Vector2D objectSize = object.getOffset();
-                    Color[][] pixelBuffer = object.getPixelBuffer();
-                    for (int x = 0; x < pixelBuffer.length; x++) {
-                        for (int y = 0; y < pixelBuffer[0].length; y++) {
-                            int posX = ((pos.x + x) - objectSize.x) - cameraPos.x;
-                            int posY = ((pos.y + y) - objectSize.y) - cameraPos.y;
-                            if (isPixelOnScreen(posX, posY)) {
-                                draw(new Vector2D(posX, posY), pixelBuffer[x][y]);
-                            }
+                Vector2D pos = offsetPos(object.getPosition());
+                Vector2D objectSize = object.getOffset();
+                Color[][] pixelBuffer = object.getPixelBuffer();
+                for (int x = 0; x < pixelBuffer.length; x++) {
+                    for (int y = 0; y < pixelBuffer[0].length; y++) {
+                        int posX = ((pos.x + x) - objectSize.x) - cameraPos.x;
+                        int posY = ((pos.y + y) - objectSize.y) - cameraPos.y;
+                        if (isPixelOnScreen(posX, posY)) {
+                            draw(new Vector2D(posX, posY), pixelBuffer[x][y]);
                         }
                     }
                 }
@@ -108,7 +110,7 @@ public class Window extends RenderableWindow {
     }
 
     private Vector2D offsetPos(int posX, int posY) {
-        return new Vector2D(posX + windowWidth/2, posY + windowHeight/2);
+        return new Vector2D(posX + windowWidth / 2, posY + windowHeight / 2);
     }
 
     private Vector2D cameraOffset() {
