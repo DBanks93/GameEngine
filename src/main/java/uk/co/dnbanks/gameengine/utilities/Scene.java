@@ -13,6 +13,8 @@ import java.util.HashMap;
  * @author Daniel Banks
  */
 public class Scene {
+    private static final Vector2D DEFUALT_SIZE = new Vector2D(100, 100);
+
     private javafx.scene.Scene scene;
 
     private final Pane root;
@@ -27,6 +29,13 @@ public class Scene {
 
     private HashMap<String, Window> windows = new HashMap<>();
 
+    Scene () {
+        this.size = DEFUALT_SIZE;
+        this.root = new Pane();
+        this.sceneName = "";
+        setScene();
+    }
+
     Scene (Pane root, Vector2D size, String sceneName) {
         this.sceneName = sceneName;
         this.root = root;
@@ -36,7 +45,7 @@ public class Scene {
 
     public Scene(Vector2D size, String sceneName) {
         this.sceneName = sceneName;
-        this.root = new StackPane();
+        this.root = new Pane();
         this.size = size;
         setScene();
     }
@@ -51,7 +60,7 @@ public class Scene {
 
     public Scene(Vector2D size, Window window, String sceneName) {
         this.sceneName = sceneName;
-        this.root = new StackPane();
+        this.root = new Pane();
         this.size = size;
         addWindow(window);
         setScene();

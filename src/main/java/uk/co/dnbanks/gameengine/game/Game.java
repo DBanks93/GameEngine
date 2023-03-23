@@ -1,6 +1,7 @@
 package uk.co.dnbanks.gameengine.game;
 
 import uk.co.dnbanks.gameengine.utilities.ErrorMessages;
+import uk.co.dnbanks.gameengine.utilities.Main;
 import uk.co.dnbanks.gameengine.utilities.Vector2D;
 
 import java.util.HashMap;
@@ -16,6 +17,22 @@ public class Game {
 
     // The starting scene.
     private static String startScene;
+
+    /**
+     * Launches and starts the game.
+     * Should be called last, after everything is set up /initialised
+     */
+    public static void launch() {
+        Main.launch();
+    }
+
+    /**
+     * Intitalises the game.
+     * Must be called at the beginning of the main method
+     */
+    public static void init() {
+        Main.initGame();
+    }
 
     /**
      * Creates a scene.

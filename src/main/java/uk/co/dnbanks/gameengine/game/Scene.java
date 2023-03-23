@@ -75,4 +75,11 @@ public class Scene {
     public void open() {
         scene.open();
     }
+
+    /**
+     * Sets the scene as the starting scene.
+     */
+    public void setAsStartScene() {
+        Game.setStartScene(scene.getSceneName());
+    }
 }
