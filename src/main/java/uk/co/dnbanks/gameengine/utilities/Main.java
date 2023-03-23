@@ -2,12 +2,13 @@ package uk.co.dnbanks.gameengine.utilities;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import uk.co.dnbanks.gameengine.display.Window;
 import uk.co.dnbanks.gameengine.game.Game;
 
 import java.util.ArrayList;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Main extends Application {
 
@@ -15,12 +16,15 @@ public class Main extends Application {
 
     private static Stage javaFxStage;
 
-    private static ArrayList<Window> windows = new ArrayList<>();
+    private static final ArrayList<Window> windows = new ArrayList<>();
+
+    private static final ReadWriteLock lock = new ReentrantReadWriteLock();
 
     /**
      * Launches the game.
      */
     public static void launch() {
+        lock.writeLock().lock();
         String startScene = Game.getStartScene();
         if (startScene == null || startScene.equals("")) {
             System.out.println("Start Scene has not been set");
@@ -28,16 +32,17 @@ public class Main extends Application {
         } else {
             Game.loadScene(startScene);
         }
+        lock.writeLock().unlock();
     }
 
     /**
      * Initialise the game.
      */
     public static void initGame() {
-        Thread fxThread = new Thread(() -> {
-            Application.launch(Main.class);
-        });
+        lock.writeLock().lock();
+        Thread fxThread = new Thread(() -> Application.launch(Main.class));
         fxThread.start();
+        lock.writeLock().unlock();
     }
 
     public static void main(String[] args) {
@@ -60,7 +65,7 @@ public class Main extends Application {
 
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         Main.javaFxStage = stage;
         Main.scene = new Scene();
         stage.setTitle(Main.scene.getSceneName());
